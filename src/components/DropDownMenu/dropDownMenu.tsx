@@ -25,7 +25,7 @@ const DropdownMenu: React.FC<IDropdownMenu> = ({ isOpen, onClose }) => {
     };
 
     fetchAcai();
-  }, []);
+  }, [isOpen]);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -59,13 +59,13 @@ const DropdownMenu: React.FC<IDropdownMenu> = ({ isOpen, onClose }) => {
                     {acai.side_dishes.join(", ")}
                   </p>
                   <p>
-                    <strong>Preço Total:</strong> R${acai.total_price}
+                    <strong>Preço Total:</strong> R${acai.total_price},00
                   </p>
                   <p>
                     <strong>Estimativa:</strong> {acai.estimate} minutos
                   </p>
                   <p>
-                    <strong>Total de Itens:</strong> {acai.total_price}
+                    <strong>Total de Itens:</strong> R${acai.total_price},00
                   </p>
                   <p>
                     <strong>Quantidade:</strong> {acai.amount}
