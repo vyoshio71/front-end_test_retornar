@@ -1,0 +1,39 @@
+.headerContainer {
+  background-color: #791d8f;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 52px;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerTitle {
+  color: #fff;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.userContainer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #fff;
+}
+
+.userContainer img {
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  cursor: pointer;
+}
