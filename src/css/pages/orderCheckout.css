@@ -132,6 +132,10 @@ img[alt="banner_1"] {
   gap: 1rem;
 }
 
+.routeBackContainer img {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .orderCheckoutContainer {
     display: flex;
