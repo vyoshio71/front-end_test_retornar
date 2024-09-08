@@ -1,0 +1,18 @@
+.orderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  height: 100vh;
+}
+
+.actionOrderMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .actionOrderMobile {
+    display: block;
+    width: 100%;
+  }
+}
