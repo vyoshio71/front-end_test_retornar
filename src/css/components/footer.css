@@ -1,0 +1,75 @@
+.footerContent {
+  width: 100%;
+  min-height: 4vh;
+  background-color: #fff;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.countContainer {
+  width: 20%;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid #e3e6e9;
+  border-radius: 5px;
+}
+
+.countContainer div {
+  text-align: center;
+  cursor: pointer;
+}
+
+.buttonContainer {
+  width: 50%;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #791d8f;
+  border-radius: 5px;
+  color: #ffff;
+  font-size: 12px;
+}
+
+.buttonContainer p:first-child {
+  padding-left: 16px;
+}
+
+.buttonContainer p:last-child {
+  padding-right: 16px;
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-height: 8vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .buttonContainer {
+    width: 70%;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #791d8f;
+    border-radius: 5px;
+    color: #ffff;
+  }
+}

@@ -1,0 +1,15 @@
+.footerLogin {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  text-align: end;
+  padding-right: 1rem;
+  width: 100%;
+}
+
+.footerLogin p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
