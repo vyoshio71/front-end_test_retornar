@@ -8,6 +8,7 @@ import Modal from "../Modal/modal";
 import { getAllAcai } from "../../services/acaiServices";
 
 import { IAcai, IDropdownMenu } from "../../interfaces/interfaces";
+import { persistor } from "../../store/store";
 
 const DropdownMenu: React.FC<IDropdownMenu> = ({ isOpen, onClose }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -29,6 +30,7 @@ const DropdownMenu: React.FC<IDropdownMenu> = ({ isOpen, onClose }) => {
 
   const handleLogout = () => {
     dispatch(logout());
+    persistor.purge()
     onClose();
   };
 
