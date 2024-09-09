@@ -111,3 +111,8 @@ export const DropdownMenuSchema = z.object({
 export const HeaderSchema = z.object({
   handleBackRoute: z.function().returns(z.void()),
 });
+
+export const OrderCardSchema = z.object({
+  acai: AcaiSchema,
+  isDelivered: z.boolean(),
+});
