@@ -16,6 +16,7 @@ import {
   AuthUserSchema,
   DropdownMenuSchema,
   HeaderSchema,
+  OrderCardSchema,
 } from "../schemas/schema";
 
 export type ISize = z.infer<typeof SizeSchema>;
@@ -44,6 +45,8 @@ export type ISnackBar = z.infer<typeof SnackBarSchema>;
 
 export type IAuthUser = z.infer<typeof AuthUserSchema>;
 
-export type IDropdownMenu = z.infer<typeof DropdownMenuSchema>
+export type IDropdownMenu = z.infer<typeof DropdownMenuSchema>;
 
-export type IHeader = z.infer<typeof HeaderSchema>
+export type IHeader = z.infer<typeof HeaderSchema>;
+
+export type IOrderCard = z.infer<typeof OrderCardSchema>;
