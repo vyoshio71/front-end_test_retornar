@@ -13,13 +13,33 @@ import { persistor } from "../../store/store";
 const DropdownMenu: React.FC<IDropdownMenu> = ({ isOpen, onClose }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [acaiList, setAcaiList] = useState<IAcai[]>([]);
+  const [deliveredAcaiList, setDeliveredAcaiList] = useState<IAcai[]>([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchAcai = async () => {
       try {
         const data = await getAllAcai();
-        setAcaiList(data);
+        const currentTime = new Date();
+
+        const activeOrders = data.filter((acai) => {
+          const estimatedDeliveryTime = new Date(acai.created_at);
+          estimatedDeliveryTime.setMinutes(
+            estimatedDeliveryTime.getMinutes() + acai.estimate
+          );
+          return estimatedDeliveryTime > currentTime;
+        });
+
+        const deliveredOrders = data.filter((acai) => {
+          const estimatedDeliveryTime = new Date(acai.created_at);
+          estimatedDeliveryTime.setMinutes(
+            estimatedDeliveryTime.getMinutes() + acai.estimate
+          );
+          return estimatedDeliveryTime <= currentTime;
+        });
+
+        setAcaiList(activeOrders);
+        setDeliveredAcaiList(deliveredOrders);
       } catch (error) {
         console.error("Erro ao buscar a lista de açaí:", error);
       }
@@ -65,6 +85,34 @@ const DropdownMenu: React.FC<IDropdownMenu> = ({ isOpen, onClose }) => {
                   </p>
                   <p>
                     <strong>Estimativa:</strong> {acai.estimate} minutos
+                  </p>
+                  <p>
+                    <strong>Total de Itens:</strong> R${acai.total_price},00
+                  </p>
+                  <p>
+                    <strong>Quantidade:</strong> {acai.amount}
+                  </p>
+                </div>
+              ))}
+
+            {deliveredAcaiList &&
+              deliveredAcaiList.map((acai) => (
+                <div key={acai.id} className="acai-item">
+                  <p>
+                    <strong>Tamanho:</strong> {acai.size}
+                  </p>
+                  <p>
+                    <strong>Fruta:</strong> {acai.fruit}
+                  </p>
+                  <p>
+                    <strong>Acompanhamentos:</strong>{" "}
+                    {acai.side_dishes.join(", ")}
+                  </p>
+                  <p>
+                    <strong>Preço Total:</strong> R${acai.total_price},00
+                  </p>
+                  <p>
+                    <strong>Estimativa:</strong> Entregue
                   </p>
                   <p>
                     <strong>Total de Itens:</strong> R${acai.total_price},00
